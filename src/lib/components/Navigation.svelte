@@ -1,26 +1,14 @@
-<script>
-  export let title = "Kanban Board";
-</script>
+<nav class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 flex justify-between items-center shadow-lg">
+  <div class="text-xl font-semibold tracking-wide">KanbanBoard</div>
 
-<header class="flex justify-between items-center bg-gray-900 text-white px-8 py-4 shadow-lg mb-6">
-  <!-- Logo -->
-  <div class="flex items-center gap-3">
-    <div class="bg-blue-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-md">
-      KB
-    </div>
-    <h1 class="text-2xl font-semibold tracking-wide">{title}</h1>
+  <div class="flex gap-6">
+    <!-- svelte-ignore a11y_invalid_attribute -->
+    <a href="#" class="hover:text-gray-200 transition">Home</a>
+    <!-- svelte-ignore a11y_invalid_attribute -->
+    <a href="#" class="hover:text-gray-200 transition">About</a>
+    <!-- svelte-ignore a11y_invalid_attribute -->
+    <a href="#" class="hover:text-gray-200 transition">Services</a>
+    <!-- svelte-ignore a11y_invalid_attribute -->
+    <a href="#" class="hover:text-gray-200 transition">Contact</a>
   </div>
-
-  <!-- Buttons -->
-  <nav class="flex gap-4">
-    <button class="bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-lg font-medium shadow">
-      Dashboard
-    </button>
-    <button class="bg-gray-700 hover:bg-gray-800 transition px-4 py-2 rounded-lg font-medium">
-      Settings
-    </button>
-    <button class="bg-red-500 hover:bg-red-600 transition px-4 py-2 rounded-lg font-medium">
-      Logout
-    </button>
-  </nav>
-</header>
+</nav>
