@@ -1,14 +1,5 @@
-<nav class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 flex justify-between items-center shadow-lg">
-  <div class="text-xl font-semibold tracking-wide">KanbanBoard</div>
-
-  <div class="flex gap-6">
-    <!-- svelte-ignore a11y_invalid_attribute -->
-    <a href="#" class="hover:text-gray-200 transition">Home</a>
-    <!-- svelte-ignore a11y_invalid_attribute -->
-    <a href="#" class="hover:text-gray-200 transition">About</a>
-    <!-- svelte-ignore a11y_invalid_attribute -->
-    <a href="#" class="hover:text-gray-200 transition">Services</a>
-    <!-- svelte-ignore a11y_invalid_attribute -->
-    <a href="#" class="hover:text-gray-200 transition">Contact</a>
+<nav class="backdrop-blur-md bg-gradient-to-r from-blue-600/80 to-indigo-700/80 text-white p-4 shadow-xl flex justify-center items-center border-b border-white/20">
+  <div class="text-3xl font-extrabold tracking-wider drop-shadow-lg hover:scale-105 transition-transform duration-300">
+    KanbanBoard
   </div>
 </nav>
