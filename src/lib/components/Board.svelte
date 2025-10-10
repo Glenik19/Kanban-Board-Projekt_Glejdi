@@ -34,7 +34,7 @@
 </script>
 
 <main class="p-8 w-full bg-gray-500 h-[400px] flex justify-between items-start gap-4">
-  <Column title="Do" list={listA} startDrag={startDrag} onDragOver={dragOver} onDrop={moveItem("A")} />
+  <Column title="ToDo" list={listA} startDrag={startDrag} onDragOver={dragOver} onDrop={moveItem("A")} />
   <Column title="Doing" list={listB} startDrag={startDrag} onDragOver={dragOver} onDrop={moveItem("B")} />
   <Column title="Done" list={listC} startDrag={startDrag} onDragOver={dragOver} onDrop={moveItem("C")} />
   <Column title="Archiv" list={listD} startDrag={startDrag} onDragOver={dragOver} onDrop={moveItem("D")} />
