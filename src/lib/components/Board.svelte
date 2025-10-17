@@ -1,5 +1,14 @@
 <script>
+  import { onMount } from 'svelte';
   import Lane from './Lane.svelte';
+
+  onMount(() => {
+  todo = JSON.parse(localStorage.getItem('todo')) || [];
+  doing = JSON.parse(localStorage.getItem('doing')) || [];
+  done = JSON.parse(localStorage.getItem('done')) || [];
+  archive = JSON.parse(localStorage.getItem('archive')) || [];
+});
+
 
   // interne Speicherung der Task-Objekte
   let tasks = [];
@@ -19,6 +28,14 @@
     event.preventDefault();
   }
 
+   function saveToLocalStorage() {
+  localStorage.setItem('todo', JSON.stringify(todo));
+  localStorage.setItem('doing', JSON.stringify(doing));
+  localStorage.setItem('done', JSON.stringify(done));
+  localStorage.setItem('archive', JSON.stringify(archive));
+}
+
+
   function moveItem(target) {
     return (event) => {
       let item = event.dataTransfer.getData("text/plain");
@@ -33,6 +50,8 @@
       if (target === "done") done = [...done, item];
       if (target === "archive") archive = [...archive, item];
     };
+
+    saveToLocalStorage();
   }
 
   // Formularsteuerung
