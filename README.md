@@ -1,38 +1,39 @@
-# sv
+# 🧩 KanbanBoard – SvelteKit PWA
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Ein modernes **Kanban-Board**, erstellt mit **SvelteKit** und **Tailwind CSS**.  
+Diese Anwendung ermöglicht das Verwalten von Aufgaben in verschiedenen Spalten (ToDo, Doing, Done, Archive)  
+und ist als **Progressive Web App (PWA)** installierbar.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🚀 Funktionen
 
-```sh
-# create a new project in the current directory
-npx sv create
+- 🏷️ Aufgaben hinzufügen, bearbeiten und löschen  
+- 📦 Aufgaben zwischen Spalten verschieben (Drag & Drop)  
+- 📱 Installierbare PWA – funktioniert auch **offline**  
+- 🌍 Zeigt automatisch dein Land (per IP-API)  
+- 💾 Automatische Speicherung im Browser (Local Storage)
 
-# create a new project in my-app
-npx sv create my-app
-```
+---
 
-## Developing
+## 🧠 Technologien
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- [SvelteKit](https://kit.svelte.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [PWA Manifest & Service Worker](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 
-```sh
+---
+
+## ⚙️ Installation
+
+```bash
+# Repository klonen
+git clone https://github.com/dein-benutzername/kanbanboard.git
+cd kanbanboard
+
+# Abhängigkeiten installieren
+npm install
+
+# Entwicklung starten
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
