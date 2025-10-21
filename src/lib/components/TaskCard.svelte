@@ -2,39 +2,57 @@
   import { format, isAfter } from 'date-fns';
   import { exportToICS, shareTask } from '$lib/utils/export';
   export let task;
-  export let onEdit;
-  export let onDelete;
-  export let onMove; 
+  export let startDrag;
 
   $: duePassed = task.dueDate ? isAfter(new Date(), new Date(task.dueDate)) : false;
-  function doICS(){ exportToICS(task); }
-  function doShare(){ shareTask(task); }
-  function edit(){ onEdit(task); }
-  function del(){ onDelete(task.id); }
-  function markDone(){ onMove(task.id, 'Done'); }
+
+  function doICS() { exportToICS(task); }
+  function doShare() { shareTask(task); }
 </script>
 
-<article class="p-3 rounded-lg shadow text-black bg-white flex flex-col gap-2 cursor-move" draggable="true" title={task.title}>
-  <div class="flex justify-between items-start gap-2">
-    <div>
-      <h3 class="font-semibold text-sm">{task.title}</h3>
-      <div class="text-xs text-gray-600">{task.priority} • {task.storyPoints} SP</div>
-    </div>
+<article
+  class="group p-4 rounded-xl shadow-sm border border-gray-200 bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col gap-2 cursor-move overflow-hidden"
+  draggable="true"
+  title={task.title}
+  on:dragstart={(e) => startDrag(task.title, e)}>
+
+  <!-- Titel + Status -->
+  <div class="flex justify-between items-start">
+    <h3 class="font-semibold text-gray-800 text-sm leading-tight truncate max-w-[140px]">
+      {task.title}
+    </h3>
+
     {#if duePassed}
-      <div class="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">Überfällig</div>
+      <span class="text-[10px] font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">
+        Überfällig
+      </span>
     {/if}
   </div>
-  <div class="text-xs text-gray-700 line-clamp-3">{task.description}</div>
-  <div class="flex justify-between items-center text-xs text-gray-500">
-    <div>Due: {task.dueDate ? format(new Date(task.dueDate), 'PP') : '—'}</div>
-    <div class="flex gap-2">
-      <button on:click={doShare} class="px-2 py-1 text-xs border rounded">Share</button>
-      <button on:click={doICS} class="px-2 py-1 text-xs border rounded">ICS</button>
-      <button on:click={edit} class="px-2 py-1 text-xs border rounded">Edit</button>
-      <button on:click={del} class="px-2 py-1 text-xs border rounded">Del</button>
-      {#if task.lane !== 'Done'}
-        <button on:click={markDone} class="px-2 py-1 text-xs border rounded">Mark Done</button>
-      {/if}
+
+  <!-- Beschreibung -->
+  <div class="text-xs text-gray-600 line-clamp-3 leading-snug">
+    {task.description}
+  </div>
+
+  <!-- Footer mit Details -->
+  <div class="flex justify-between items-center text-[11px] text-gray-500 mt-1">
+    <span class="font-medium">
+      SP: <span class="text-gray-800">{task.storyPoints}</span>
+    </span>
+
+    <div class="flex gap-1">
+      <button
+        on:click={doShare}
+        class="px-2 py-0.5 text-[10px] border border-gray-300 rounded-md hover:bg-indigo-50 text-gray-700 hover:text-indigo-600 transition"
+      >
+        Share
+      </button>
+      <button
+        on:click={doICS}
+        class="px-2 py-0.5 text-[10px] border border-gray-300 rounded-md hover:bg-green-50 text-gray-700 hover:text-green-600 transition"
+      >
+        ICS
+      </button>
     </div>
   </div>
 </article>
