@@ -10,7 +10,6 @@
   let archive = [];
 
   onMount(() => {
-    tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks = tasks.map(t => ({ ...t, lane: t.lane || 'ToDo' }));
     todo = tasks.filter(t => t.lane === 'ToDo').map(t => t.title);
     doing = tasks.filter(t => t.lane === 'Doing').map(t => t.title);
